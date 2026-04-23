@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · Sumak Kawsay · Church of Good Living</title>
+  <meta name="description" content="Write to us with questions about our community, membership, or ceremonies." />
+
+  <link rel="canonical" href="https://sumakawsay.org/en/contact/" />
+  <link rel="alternate" hreflang="es" href="https://sumakawsay.org/contacto/" />
+  <link rel="alternate" hreflang="en" href="https://sumakawsay.org/en/contact/" />
+  <link rel="alternate" hreflang="x-default" href="https://sumakawsay.org/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sumakawsay.org/en/contact/" />
+  <meta property="og:title" content="Contact · Sumak Kawsay · Church of Good Living" />
+  <meta property="og:description" content="Write to us with questions about our community, membership, or ceremonies." />
+  <meta property="og:image" content="https://sumakawsay.org/assets/images/home-hero.jpg" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Sumak Kawsay" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Contact · Sumak Kawsay · Church of Good Living" />
+  <meta name="twitter:description" content="Write to us with questions about our community, membership, or ceremonies." />
+  <meta name="twitter:image" content="https://sumakawsay.org/assets/images/home-hero.jpg" />
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/main.css?v=4" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="/en/" aria-label="Sumak Kawsay, Home">
+        <img src="/assets/images/logo-bone.png" alt="" class="site-header__logo-mark" aria-hidden="true" width="200" height="200" />
+        <span class="site-header__logo-text">
+          <span class="site-header__logo-name">Sumak Kawsay</span>
+          <span class="site-header__logo-sub">Church of Good Living</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+        <ul class="primary-nav__list" role="list">
+          <li class="primary-nav__item primary-nav__item--dropdown">
+            <button class="primary-nav__link primary-nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">The Foundation</button>
+            <ul class="primary-nav__dropdown" role="list">
+              <li><a class="primary-nav__dropdown-link" href="/en/statement-of-faith/">Statement of Faith</a></li>
+              <li><a class="primary-nav__dropdown-link" href="/en/art/">Art</a></li>
+              <li><a class="primary-nav__dropdown-link" href="/en/spirituality/">Spirituality</a></li>
+              <li><a class="primary-nav__dropdown-link" href="/en/ethics/">Ethics</a></li>
+            </ul>
+          </li>
+          <li class="primary-nav__item"><a class="primary-nav__link" href="/en/ceremonies/">Ceremonies</a></li>
+          <li class="primary-nav__item"><a class="primary-nav__link" href="/en/community/">Community</a></li>
+          <li class="primary-nav__item"><a class="primary-nav__link primary-nav__link--active" href="/en/contact/" aria-current="page">Contact</a></li>
+          <li class="primary-nav__item"><a class="primary-nav__link primary-nav__link--cta" href="/en/support/">Support</a></li>
+          <li class="primary-nav__item"><a class="primary-nav__lang-switch" href="/contacto/" hreflang="es" lang="es" aria-label="Cambiar a español">ES</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="paper-intro" aria-label="Contact">
+      <p class="paper-intro__eyebrow">Sumak Kawsay</p>
+      <h1 class="paper-intro__title">Contact</h1>
+      <p class="paper-intro__lede">Write to us with questions about our community, membership, or ceremonies.</p>
+    </section>
+
+    <section class="page-section page-section--band" aria-labelledby="form-heading">
+      <div class="page-section__inner">
+        <header class="band-header" data-reveal>
+          <h2 class="band-header__title" id="form-heading">Write to us</h2>
+        </header>
+
+        <form class="contact-form" action="https://formspree.io/f/xqewwkgp" method="POST" data-contact-form data-reveal>
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required>
+              <option>General question</option>
+              <option>Membership information</option>
+              <option>Ceremony information</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+
+          <button type="submit" class="btn">Send message</button>
+
+          <p class="form-error" data-form-error hidden>We couldn't send your message. Please try again in a moment.</p>
+
+        </form>
+
+        <div class="form-success" data-form-success hidden role="status" aria-live="polite">
+          <p class="form-success__title">Thank you, we've received your message.</p>
+          <p class="form-success__body">We'll reply soon.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="follow-heading">
+      <div class="page-section__inner">
+        <header class="band-header" data-reveal>
+          <h2 class="band-header__title" id="follow-heading">Follow and join</h2>
+        </header>
+
+        <div class="follow-grid" data-reveal>
+
+          <article class="follow-block">
+            <h3 class="follow-block__title">Instagram</h3>
+            <p class="follow-block__body">Traditional wisdom, sacred reciprocity. News, teachings, and reflections.</p>
+            <a class="follow-block__link" href="https://www.instagram.com/sumakawsayfoundation/" target="_blank" rel="noopener noreferrer">@sumakawsayfoundation <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="follow-block">
+            <h3 class="follow-block__title">Telegram</h3>
+            <p class="follow-block__body">Our community group. Updates, ceremony announcements, and conversation among members.</p>
+            <a class="follow-block__link" href="https://t.me/sumakawsay" target="_blank" rel="noopener noreferrer">Join our Telegram group <span aria-hidden="true">→</span></a>
+          </article>
+
+          <article class="follow-block">
+            <h3 class="follow-block__title">Mighty Network</h3>
+            <p class="follow-block__body">Our membership network. Sign up for exclusive content, articles, and a meeting space with other members.</p>
+            <a class="follow-block__link" href="https://sumak-kawsay.mn.co/share/TAmiEnlsdqRMKwbi?utm_source=manual" target="_blank" rel="noopener noreferrer">Sign up on Mighty Network <span aria-hidden="true">→</span></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <img src="/assets/images/logo-ink.png" alt="Sumak Kawsay" class="site-footer__mark" width="200" height="200" />
+      <p class="site-footer__name">Sumak Kawsay</p>
+      <p class="site-footer__subname">Church of Good Living</p>
+      <div class="site-footer__rule" aria-hidden="true"></div>
+      <p class="site-footer__status">501(c)(3) non-profit public foundation &middot; Member of <a href="https://sacredplantalliance.org" rel="noopener noreferrer" target="_blank">Sacred Plant Alliance</a></p>
+      <p class="site-footer__copyright">&copy; 2026 Sumak Kawsay Foundation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+
+</body>
+</html>

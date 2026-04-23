@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <!--
+    Sumak Kawsay glyphs.
+    Chakana proportions: arms 33% of viewBox, central hole 20% —
+    fatter arms for better visual balance, large hole so it reads
+    distinctly Andean (not a Latin cross).
+  -->
+
+  <!-- Full Chakana — filled, prominent square hole -->
+  <symbol id="chakana" viewBox="0 0 120 120">
+    <path fill="currentColor" fill-rule="evenodd" d="
+      M40 0 L80 0 L80 20 L100 20 L100 40 L120 40 L120 80 L100 80 L100 100 L80 100 L80 120 L40 120 L40 100 L20 100 L20 80 L0 80 L0 40 L20 40 L20 20 L40 20 Z
+      M48 48 L72 48 L72 72 L48 72 Z"/>
+  </symbol>
+
+  <!-- Chakana outline -->
+  <symbol id="chakana-outline" viewBox="0 0 120 120">
+    <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="miter" vector-effect="non-scaling-stroke">
+      <path d="M40 0 L80 0 L80 20 L100 20 L100 40 L120 40 L120 80 L100 80 L100 100 L80 100 L80 120 L40 120 L40 100 L20 100 L20 80 L0 80 L0 40 L20 40 L20 20 L40 20 Z"/>
+      <rect x="48" y="48" width="24" height="24"/>
+    </g>
+  </symbol>
+
+  <!-- Chakana mark — hairline outer silhouette only.
+       For small decorative use; reads clean at 30–60px. -->
+  <symbol id="chakana-mark" viewBox="0 0 120 120">
+    <path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="miter" vector-effect="non-scaling-stroke"
+      d="M40 0 L80 0 L80 20 L100 20 L100 40 L120 40 L120 80 L100 80 L100 100 L80 100 L80 120 L40 120 L40 100 L20 100 L20 80 L0 80 L0 40 L20 40 L20 20 L40 20 Z"/>
+  </symbol>
+
+  <!-- Half Chakana — upper half, for header hem & page signatures -->
+  <symbol id="chakana-half" viewBox="0 0 120 60">
+    <path fill="currentColor" d="
+      M40 60 L40 40 L20 40 L20 20 L0 20 L0 0 L20 0 L20 20 L40 20 L40 0 L80 0 L80 20 L100 20 L100 0 L120 0 L120 20 L100 20 L100 40 L80 40 L80 60 Z"/>
+  </symbol>
+
+  <!-- Fire — stepped flame -->
+  <symbol id="fire" viewBox="0 0 40 60">
+    <path fill="currentColor" d="M10 60 L10 50 L5 50 L5 40 L10 40 L10 30 L15 30 L15 20 L20 20 L20 10 L25 10 L25 20 L30 20 L30 30 L35 30 L35 40 L30 40 L30 50 L35 50 L35 60 Z"/>
+  </symbol>
+
+  <!-- Water — stepped wave -->
+  <symbol id="water" viewBox="0 0 80 20">
+    <path fill="currentColor" d="M0 15 L0 10 L10 10 L10 5 L20 5 L20 10 L30 10 L30 15 L40 15 L40 10 L50 10 L50 5 L60 5 L60 10 L70 10 L70 15 L80 15 L80 20 L0 20 Z"/>
+  </symbol>
+
+  <!-- Earth — 3-step pyramid -->
+  <symbol id="earth" viewBox="0 0 80 40">
+    <path fill="currentColor" d="M0 40 L0 30 L10 30 L10 20 L20 20 L20 10 L30 10 L30 0 L50 0 L50 10 L60 10 L60 20 L70 20 L70 30 L80 30 L80 40 Z"/>
+  </symbol>
+
+  <!-- Air — 8-point star (from the foundation logo) -->
+  <symbol id="air" viewBox="0 0 100 100">
+    <g fill="currentColor">
+      <rect x="25" y="25" width="50" height="50"/>
+      <rect x="25" y="25" width="50" height="50" transform="rotate(45 50 50)"/>
+    </g>
+  </symbol>
+
+  <!-- Stepped inline bullet -->
+  <symbol id="step" viewBox="0 0 12 12">
+    <path fill="currentColor" d="M0 8 L0 4 L4 4 L4 0 L8 0 L8 4 L12 4 L12 8 L8 8 L8 12 L4 12 L4 8 Z"/>
+  </symbol>
+
+</svg>
