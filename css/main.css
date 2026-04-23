@@ -2440,9 +2440,9 @@ body.has-threshold.is-scrolled .site-header .nav-toggle__bar { background: var(-
   /* Spirituality page: tight mobile crop — zoom onto the woman at the fire,
      crop out everyone behind her. Plus stronger bottom scrim for legible copy. */
   body.page-spirituality .page-threshold__backdrop img {
-    object-position: 40% center;
-    transform: scale(1.9);
-    transform-origin: 40% 45%;
+    object-position: 48% center;
+    transform: scale(2.5);
+    transform-origin: 48% 42%;
   }
   body.page-spirituality .page-threshold__overlay {
     background:
