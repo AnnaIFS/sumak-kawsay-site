@@ -158,9 +158,19 @@
 }
 
 @media (max-width: 720px) {
-  .home-v2 .hero-v2__title { font-size: clamp(2.5rem, 13vw, 4rem); }
-  .home-v2 .hero-v2__eyebrow { font-size: 0.68rem; letter-spacing: 0.34em; }
-  .home-v2 .hero-v2__cta { padding: 0.85rem 1.3rem; letter-spacing: 0.24em; }
+  /* Hero: tighter top space so title sits closer to the header, not floating in a big gap */
+  .home-v2 .hero-v2 { min-height: 88svh; }
+  .home-v2 .hero-v2__content {
+    padding: var(--s-md) var(--s-md) var(--s-lg);
+    min-height: 88svh;
+    align-items: flex-start;
+    padding-top: calc(var(--s-xl) + 2rem);
+  }
+  .home-v2 .hero-v2__block { gap: var(--s-sm); }
+  .home-v2 .hero-v2__title { font-size: clamp(3rem, 15vw, 5rem); }
+  .home-v2 .hero-v2__eyebrow { font-size: 0.72rem; letter-spacing: 0.32em; }
+  .home-v2 .hero-v2__lede { font-size: 1.05rem; line-height: 1.55; max-width: 34ch; }
+  .home-v2 .hero-v2__cta { padding: 0.9rem 1.5rem; letter-spacing: 0.26em; font-size: 0.78rem; }
   .home-v2 .hero-v2__glyph { width: 28px; height: 28px; }
 }
 
@@ -438,8 +448,23 @@
 }
 
 @media (max-width: 720px) {
-  .home-v2 .section-card-v2__frame { aspect-ratio: 3 / 4; }
-  .home-v2 .section-card-v2__content { padding: var(--s-md) var(--s-sm); }
+  /* Cards: square (was 3/4 — too tall). Less empty photo, content reads first. */
+  .home-v2 .section-card-v2__frame { aspect-ratio: 1 / 1; }
+  .home-v2 .section-card-v2__content {
+    padding: var(--s-md) var(--s-md) var(--s-md);
+    gap: 0.4rem;
+  }
+  /* Bump title for mobile readability */
+  .home-v2 .section-card-v2__title { font-size: clamp(1.6rem, 6vw, 2rem); }
+  .home-v2 .section-card-v2__text { font-size: 0.95rem; -webkit-line-clamp: 2; }
+  /* Trim the scrim so photo isn't dominated by dark gradient */
+  .home-v2 .section-card-v2__scrim {
+    background:
+      linear-gradient(180deg,
+        rgba(20,14,12,0.2) 0%,
+        rgba(20,14,12,0.4) 50%,
+        rgba(46,26,40,0.82) 100%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

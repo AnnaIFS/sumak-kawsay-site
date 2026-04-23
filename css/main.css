@@ -385,6 +385,11 @@ p:last-child { margin-block-end: 0; }
   color: var(--ink);
 }
 
+/* Mobile-only lang-switch (duplicate of the one inside the nav list).
+   Hidden on desktop, shown on mobile — sits in the header bar next to the
+   hamburger so users can switch language without opening the drawer. */
+.primary-nav__lang-switch--mobile { display: none; }
+
 /* Hamburger */
 .nav-toggle {
   display: none;
@@ -2243,45 +2248,121 @@ body.has-threshold.is-scrolled .site-header .nav-toggle__bar { background: var(-
 }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE  —  MOBILE NAV + LAYOUT
    ============================================================ */
 @media (max-width: 960px) {
+  /* Header layout shifts to flex-start so right-aligned items can group */
+  .site-header__inner {
+    justify-content: flex-start;
+    gap: var(--s-sm);
+  }
+  /* Mobile lang-switch: visible, pushed to right margin, sits before hamburger */
+  .primary-nav__lang-switch--mobile {
+    display: inline-block;
+    margin-left: auto;
+    font-size: 0.78rem;
+    padding: 0.35rem 0.6rem;
+  }
+  /* Hide the in-nav lang-switch on mobile (it's duplicated outside) */
+  .primary-nav__list .primary-nav__item--lang { display: none; }
+
   .nav-toggle { display: flex; }
+
+  /* Drawer: full-screen paper overlay. Foundation dropdown is auto-expanded
+     so users don't need to tap to reveal the 4 sub-items. */
   .primary-nav__list {
     position: fixed;
     inset: 0;
     background: var(--paper);
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: var(--s-md);
-    padding: var(--s-xl) var(--s-md);
+    justify-content: flex-start;
+    gap: 0.2rem;
+    padding: calc(var(--s-xl) + 3rem) var(--s-md) var(--s-xl);
     display: none;
     z-index: 50;
+    overflow-y: auto;
   }
   .primary-nav__list.open { display: flex; }
+
   .primary-nav__link,
   .primary-nav__dropdown-toggle {
-    font-size: var(--fs-sm);
-    letter-spacing: 0.25em;
+    font-size: 1.1rem;
+    letter-spacing: 0.22em;
+    padding: 0.85rem 0.5rem;
+    color: var(--aubergine);
   }
-  .primary-nav__dropdown {
+  /* Foundation label — always looks like a section header, not a button */
+  .primary-nav__dropdown-toggle {
+    pointer-events: none; /* disable JS toggle on mobile, sub-items always shown */
+  }
+  .primary-nav__dropdown-toggle::before { display: none; }
+
+  /* Auto-expanded Foundation sub-items */
+  .primary-nav__item--dropdown .primary-nav__dropdown {
+    display: block;
+    opacity: 1;
+    transform: none;
     position: static;
     box-shadow: none;
     background: transparent;
     border: none;
-    padding: 0;
+    padding: 0 0 var(--s-sm);
     text-align: center;
   }
-  .primary-nav__item--dropdown.open .primary-nav__dropdown { display: block; }
-  .primary-nav__dropdown-link { padding: 0.5rem; font-size: var(--fs-sm); }
+  .primary-nav__dropdown-link {
+    display: block;
+    padding: 0.55rem 0.5rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--aubergine);
+    opacity: 0.85;
+  }
+
+  /* Kill underline bar on mobile (cleaner) */
+  .primary-nav__link::after { display: none; }
+
+  /* FIX: white-on-white when drawer is open on threshold pages (home, threshold pages).
+     Override the translucent-header color rules when the drawer is active. */
+  body.has-threshold .primary-nav__list.open .primary-nav__link,
+  body.has-threshold .primary-nav__list.open .primary-nav__dropdown-toggle,
+  body.has-threshold .primary-nav__list.open .primary-nav__dropdown-link {
+    color: var(--aubergine);
+    text-shadow: none;
+  }
+  body.has-threshold .primary-nav__list.open .primary-nav__link--cta {
+    color: var(--ochre-deep);
+  }
+  /* Hamburger bars: ink when the menu is open (drawer bg is paper) */
+  body.has-threshold .nav-toggle[aria-expanded="true"] .nav-toggle__bar {
+    background: var(--ink);
+  }
 }
 
+/* ============================================================
+   RESPONSIVE  —  MOBILE BREAKPOINT (720px and below)
+   ============================================================ */
 @media (max-width: 720px) {
+  /* CONTENT MARGINS: every inner wrapper gets horizontal breathing room */
+  .page-section__inner,
+  .page-read,
+  .page-content {
+    padding-inline: var(--s-md);
+  }
+
+  /* Legacy hero + content sections */
   .hero { padding-top: var(--s-lg); min-height: auto; }
   .hero__title { font-size: var(--fs-3xl); }
   .hero__media { max-width: 22rem; }
   .page-intro { padding-block: var(--s-lg) var(--s-sm); }
   .site-header__logo-sub { display: none; }
-  .quechua-aside { position: static; text-align: left; width: auto; font-size: var(--fs-2xl); margin: var(--s-md) 0 var(--s-xs); }
+  .quechua-aside {
+    position: static; text-align: left; width: auto;
+    font-size: var(--fs-2xl); margin: var(--s-md) 0 var(--s-xs);
+  }
+
+  /* Paper-intro pages: bump title sizes on mobile */
+  .paper-intro__title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+  .page-threshold__title { font-size: clamp(2.75rem, 11vw, 4rem); }
 }
