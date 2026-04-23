@@ -2414,4 +2414,12 @@ body.has-threshold.is-scrolled .site-header .nav-toggle__bar { background: var(-
   /* Paper-intro pages: bump title sizes on mobile */
   .paper-intro__title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
   .page-threshold__title { font-size: clamp(2.75rem, 11vw, 4rem); }
+
+  /* Spirituality page: zoom + recenter the hero image on mobile so only
+     the woman at the fire is visible (not the people behind her). */
+  body.page-spirituality .page-threshold__backdrop img {
+    object-position: 42% center;
+    transform: scale(1.4);
+    transform-origin: 42% center;
+  }
 }

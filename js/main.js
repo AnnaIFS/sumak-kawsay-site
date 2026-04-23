@@ -62,16 +62,31 @@
     });
   });
 
-  /* Close mobile nav on link click */
+  /* Close mobile nav on link click (event delegation so it works for all
+     anchors even if DOM changes). Navigation proceeds naturally — we just
+     tidy the drawer state so bfcache-restored pages don't show a stuck menu. */
+  function closeNav() {
+    if (!navList) return;
+    navList.classList.remove('open');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
   if (navList) {
-    navList.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        navList.classList.remove('open');
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+    navList.addEventListener('click', function (e) {
+      var a = e.target.closest('a');
+      if (!a) return;
+      closeNav();
     });
   }
+
+  /* Close menu if the viewport becomes wide enough (mobile → desktop rotation
+     or orientation change), and on bfcache page-show. */
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 960) closeNav();
+  });
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) closeNav();
+  });
 
   /* ---- Contact form: AJAX submission to Formspree, inline thank-you ---- */
   var contactForm = document.querySelector('[data-contact-form]');
