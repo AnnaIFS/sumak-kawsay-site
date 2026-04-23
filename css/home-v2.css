@@ -194,9 +194,6 @@
 }
 .home-v2 .welcome-v2__glyph svg { width: 100%; height: 100%; display: block; }
 
-/* Offset for anchor-scroll so the heading lands below the sticky header */
-.home-v2 .welcome-v2 { scroll-margin-top: 90px; }
-
 .home-v2 .welcome-v2__statement {
   font-family: var(--font-display);
   font-style: italic;
@@ -207,6 +204,9 @@
   color: var(--ink);
   margin: 0 auto var(--s-lg);
   max-width: 22ch;
+  /* Offset for anchor-scroll so the title lands below the sticky header,
+     not hidden behind it. Applied to the actual #welcome-heading target. */
+  scroll-margin-top: 120px;
 }
 
 .home-v2 .welcome-v2__prose {
