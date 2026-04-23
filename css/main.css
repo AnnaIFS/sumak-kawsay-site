@@ -67,7 +67,7 @@
 
 /* ---- Reset ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 
 body {
   font-family: var(--font-body);
@@ -132,14 +132,17 @@ h1 em, h2 em, h3 em, .display-md em, .display-lg em { font-style: italic; color:
 .display-lg { font-size: var(--fs-4xl); letter-spacing: -0.02em;  line-height: 1; }
 .display-md { font-size: var(--fs-3xl); letter-spacing: -0.015em; line-height: 1.04; }
 
-/* Section heading (h2-equivalent used in content pages) */
+/* Section heading (h3-level, used within content pages). Aubergine italic so
+   titles like "Awakolla Ceremony", "Temazcal", etc. read as editorial display
+   type rather than plain doc headings. */
 .section-heading {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-style: italic;
+  font-size: clamp(2rem, 3.6vw, 2.75rem);
   font-weight: 500;
-  letter-spacing: -0.01em;
-  line-height: 1.12;
-  color: var(--ink);
+  letter-spacing: -0.012em;
+  line-height: 1.08;
+  color: var(--aubergine);
   margin: var(--s-xl) 0 var(--s-md);
   position: relative;
   padding-left: 1.75rem;
@@ -148,15 +151,15 @@ h1 em, h2 em, h3 em, .display-md em, .display-lg em { font-style: italic; color:
   content: "";
   position: absolute;
   left: 0;
-  top: 0.72em;
+  top: 0.65em;
   width: 1.1rem;
   height: 2px;
   background: var(--aubergine);
-  opacity: 0.8;
+  opacity: 0.85;
 }
 .section-heading em { font-style: italic; color: var(--aubergine); }
-.section-heading--small { font-size: clamp(1.25rem, 2.2vw, 1.6rem); padding-left: 1.4rem; }
-.section-heading--small::before { top: 0.65em; width: 0.9rem; }
+.section-heading--small { font-size: clamp(1.4rem, 2.4vw, 1.8rem); padding-left: 1.4rem; }
+.section-heading--small::before { top: 0.6em; width: 0.9rem; }
 
 .eyebrow {
   font-family: var(--font-body);
@@ -1435,6 +1438,22 @@ body.has-threshold.is-scrolled .site-header .nav-toggle__bar { background: var(-
   line-height: 1;
 }
 
+/* Mobile: stack name over description, left-aligned. Middot pseudo hidden
+   because the two lines already separate the values visually. */
+@media (max-width: 640px) {
+  .solstice-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+  .solstice-list__desc {
+    padding-left: 0;
+  }
+  .solstice-list__desc::before {
+    display: none;
+  }
+}
+
 .ceremony-list { columns: 1; column-gap: var(--s-xl); }
 @media (min-width: 720px) {
   .ceremony-list { columns: 2; }
@@ -2256,49 +2275,87 @@ body.has-threshold.is-scrolled .site-header .nav-toggle__bar { background: var(-
     justify-content: flex-start;
     gap: var(--s-sm);
   }
-  /* Mobile lang-switch: visible, pushed to right margin, sits before hamburger */
+  /* Mobile lang-switch: always on top of drawer so it stays tappable */
   .primary-nav__lang-switch--mobile {
     display: inline-block;
     margin-left: auto;
     font-size: 0.78rem;
     padding: 0.35rem 0.6rem;
+    position: relative;
+    z-index: 52;
   }
   /* Hide the in-nav lang-switch on mobile (it's duplicated outside) */
   .primary-nav__list .primary-nav__item--lang { display: none; }
 
-  .nav-toggle { display: flex; }
+  /* Hamburger sits on top of the drawer so the X is always visible + tappable */
+  .nav-toggle {
+    display: flex;
+    position: relative;
+    z-index: 52;
+  }
 
-  /* Drawer: full-screen paper overlay. Foundation dropdown is auto-expanded
-     so users don't need to tap to reveal the 4 sub-items. */
+  /* Drawer: full-screen paper overlay. Each item is a full-width tappable
+     row with a visible divider so tap targets are unambiguous. */
   .primary-nav__list {
     position: fixed;
     inset: 0;
     background: var(--paper);
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: flex-start;
-    gap: 0.2rem;
-    padding: calc(var(--s-xl) + 3rem) var(--s-md) var(--s-xl);
+    gap: 0;
+    padding: calc(var(--s-xl) + 3.5rem) 0 var(--s-xl);
     display: none;
     z-index: 50;
     overflow-y: auto;
   }
   .primary-nav__list.open { display: flex; }
 
-  .primary-nav__link,
-  .primary-nav__dropdown-toggle {
-    font-size: 1.1rem;
-    letter-spacing: 0.22em;
-    padding: 0.85rem 0.5rem;
-    color: var(--aubergine);
+  /* Item row wrapper — centered with side padding, dividers connect full-width */
+  .primary-nav__item {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 var(--s-md);
   }
-  /* Foundation label — always looks like a section header, not a button */
+
+  /* Every tappable row: full-width, centered, 56px+ tall, hairline divider below */
+  .primary-nav__link,
+  .primary-nav__dropdown-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--aubergine);
+    opacity: 1;
+    font-weight: 500;
+    padding: 1.1rem 0.5rem;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .primary-nav__dropdown-link { font-weight: 400; }
+
+  /* "The Foundation" reads as a small-caps label heading the 4 sub-items —
+     not tappable, sits just above the group */
   .primary-nav__dropdown-toggle {
-    pointer-events: none; /* disable JS toggle on mobile, sub-items always shown */
+    display: block;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--ink-whisper);
+    padding: 1.3rem 0.5rem 0.6rem;
+    font-weight: 500;
+    pointer-events: none;
+    text-align: center;
+    border-bottom: none;
   }
   .primary-nav__dropdown-toggle::before { display: none; }
 
-  /* Auto-expanded Foundation sub-items */
+  /* Auto-expanded Foundation sub-items, each a full-width tap row */
   .primary-nav__item--dropdown .primary-nav__dropdown {
     display: block;
     opacity: 1;
@@ -2307,18 +2364,10 @@ body.has-threshold.is-scrolled .site-header .nav-toggle__bar { background: var(-
     box-shadow: none;
     background: transparent;
     border: none;
-    padding: 0 0 var(--s-sm);
-    text-align: center;
+    padding: 0;
+    margin: 0;
   }
-  .primary-nav__dropdown-link {
-    display: block;
-    padding: 0.55rem 0.5rem;
-    font-size: 0.95rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--aubergine);
-    opacity: 0.85;
-  }
+  .primary-nav__item--dropdown .primary-nav__dropdown li { width: 100%; }
 
   /* Kill underline bar on mobile (cleaner) */
   .primary-nav__link::after { display: none; }
