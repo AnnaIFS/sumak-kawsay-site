@@ -2437,11 +2437,19 @@ body.has-threshold.is-scrolled .site-header .nav-toggle__bar { background: var(-
   .paper-intro__title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
   .page-threshold__title { font-size: clamp(2.75rem, 11vw, 4rem); }
 
-  /* Spirituality page: zoom + recenter the hero image on mobile so only
-     the woman at the fire is visible (not the people behind her). */
+  /* Spirituality page: tight mobile crop — zoom onto the woman at the fire,
+     crop out everyone behind her. Plus stronger bottom scrim for legible copy. */
   body.page-spirituality .page-threshold__backdrop img {
-    object-position: 42% center;
-    transform: scale(1.4);
-    transform-origin: 42% center;
+    object-position: 40% center;
+    transform: scale(1.9);
+    transform-origin: 40% 45%;
+  }
+  body.page-spirituality .page-threshold__overlay {
+    background:
+      linear-gradient(180deg,
+        rgba(20,14,12,0.55) 0%,
+        rgba(20,14,12,0.50) 45%,
+        rgba(20,14,12,0.92) 100%),
+      radial-gradient(ellipse at 18% 82%, rgba(168,124,79,0.18), transparent 55%);
   }
 }
