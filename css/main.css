@@ -81,11 +81,11 @@ body {
   overflow-x: hidden;
 }
 
-/* Mobile: bump body + prose to 18px for comfortable reading; keeps form inputs
+/* Mobile: bump body + prose to 19px for comfortable reading; keeps form inputs
    well above the 16px iOS auto-zoom threshold. */
 @media (max-width: 720px) {
   :root {
-    --fs-base: 1.125rem;
+    --fs-base: 1.1875rem;
   }
   body { line-height: 1.68; }
   .prose p { line-height: 1.72; }
@@ -450,7 +450,7 @@ p:last-child { margin-block-end: 0; }
   width: 100%;
   height: 110%;
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center 55%;
   filter: saturate(0.82) contrast(1.04) brightness(0.88);
   transform: translate3d(0, var(--parallax-y, 0), 0);
   will-change: transform;
@@ -2428,6 +2428,10 @@ body.has-threshold.is-scrolled .site-header .nav-toggle__bar { background: var(-
   .hero__media { max-width: 22rem; }
   .page-intro { padding-block: var(--s-lg) var(--s-sm); }
   .site-header__logo-sub { display: none; }
+  .site-header__logo-mark { width: 44px; height: 44px; }
+  .site-header__logo-name { font-size: 1.55rem; }
+  .footer-subtitle { font-size: 0.8125rem; }
+  .footer-contact p { font-size: 1rem; }
   .quechua-aside {
     position: static; text-align: left; width: auto;
     font-size: var(--fs-2xl); margin: var(--s-md) 0 var(--s-xs);
@@ -2437,13 +2441,7 @@ body.has-threshold.is-scrolled .site-header .nav-toggle__bar { background: var(-
   .paper-intro__title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
   .page-threshold__title { font-size: clamp(2.75rem, 11vw, 4rem); }
 
-  /* Spirituality page: tight mobile crop — zoom onto the woman at the fire,
-     crop out everyone behind her. Plus stronger bottom scrim for legible copy. */
-  body.page-spirituality .page-threshold__backdrop img {
-    object-position: 48% center;
-    transform: scale(2.5);
-    transform-origin: 48% 42%;
-  }
+  /* Spirituality page: stronger bottom scrim for legible copy over the smoke image. */
   body.page-spirituality .page-threshold__overlay {
     background:
       linear-gradient(180deg,
