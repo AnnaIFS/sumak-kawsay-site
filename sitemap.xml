@@ -93,4 +93,14 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://sumakawsay.org/es/apoyo/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sumakawsay.org/support/" />
   </url>
+  <url>
+    <loc>https://sumakawsay.org/es/privacidad/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sumakawsay.org/es/privacidad/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sumakawsay.org/privacy/" />
+  </url>
+  <url>
+    <loc>https://sumakawsay.org/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sumakawsay.org/privacy/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://sumakawsay.org/es/privacidad/" />
+  </url>
 </urlset>
